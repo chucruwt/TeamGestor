@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Cadastro de administrador · TeamGestor</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/variables.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/css/auth.css" />
+    </head>
+    <body>
+        <main class="auth">
+            <form class="auth-card" id="form">
+                <h1>Cadastro de administrador</h1>
+                <p class="sub">Crie seu time e gerencie atletas, treinos e resultados</p>
+                <div class="abas">
+                    <a href="cadastro-atleta.html" class="">Atleta</a
+                    ><a href="cadastro-admin.html" class="ativo">Admin</a>
+                </div>
+                <p class="sec">SEUS DADOS</p>
+                <label>Nome completo</label><input id="nome" placeholder="Seu nome" required />
+                <div class="duas">
+                    <div>
+                        <label>CPF</label><input id="cpf" placeholder="000.000.000-00" required />
+                    </div>
+                    <div>
+                        <label>Telefone</label><input id="tel" placeholder="(47) 9000-0000" />
+                    </div>
+                </div>
+                <label>E-mail</label
+                ><input id="email" type="email" placeholder="voce@email.com" required />
+                <div class="duas">
+                    <div>
+                        <label>Senha</label
+                        ><input id="senha" type="password" placeholder="Crie uma senha" required />
+                    </div>
+                    <div>
+                        <label>Confirmar senha</label
+                        ><input id="senha2" type="password" placeholder="Repita a senha" required />
+                    </div>
+                </div>
+                <p class="nota">
+                    🔒 Seu CPF é usado apenas para validar sua identidade como responsável pelo time
+                    e não é exibido publicamente.
+                </p>
+                <p class="sec">DADOS DO TIME</p>
+                <label>Nome do time</label
+                ><input id="time" placeholder="Ex: Guarani Futebol Clube" required />
+                <div class="duas">
+                    <div>
+                        <label>Modalidade</label
+                        ><input id="modalidade" placeholder="Ex: Futsal" required />
+                    </div>
+                    <div>
+                        <label>Categoria</label
+                        ><input id="categoria" placeholder="Ex: Sub-17" required />
+                    </div>
+                </div>
+                <div class="aviso">
+                    Por segurança, todo novo time passa por uma revisão de nossa equipe antes de
+                    ficar ativo. Você recebe um e-mail assim que for aprovado, geralmente em até 48
+                    horas.
+                </div>
+                <label style="font-weight: 400"
+                    ><input type="checkbox" id="termos" />Confirmo que sou responsável autorizado
+                    por esse time e concordo com os termos de uso.</label
+                >
+                <p class="erro" id="erro"></p>
+                <button class="btn btn-escuro btn-bloco">Solicitar criação do time</button>
+                <p class="rodape">Já tem uma conta? <a href="login.html">Entrar</a></p>
+            </form>
+        </main>
+        <script src="../../assets/js/core/storage.js"></script>
+        <script src="../../assets/js/core/auth.js"></script>
+        <script src="../../assets/js/core/validacao.js"></script>
+        <script src="../../assets/js/core/utils.js"></script>
+        <script src="../../assets/js/pages/cadastro-admin.js"></script>
+    </body>
+</html>

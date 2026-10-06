@@ -1,0 +1,23 @@
+# VS Code
+.vscode/
+
+# Dependências
+node_modules/
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Dados gerados
+data/*.json
+
+# Arquivos enviados pelos usuários
+uploads/*

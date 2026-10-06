@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Painel · TeamGestor</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/variables.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/css/admin.css" />
+        <link rel="stylesheet" href="../../assets/css/layout.css" />
+    </head>
+    <body>
+        <div class="app">
+            <aside class="sidebar" id="sidebar"></aside>
+            <main class="conteudo">
+                <div class="topo">
+                    <div>
+                        <h1 id="ola"></h1>
+                        <p class="sub" id="time"></p>
+                    </div>
+                    <div>
+                        <button class="btn">🔔 Comunicado</button>
+                        <button class="btn btn-escuro">+ Novo evento</button>
+                    </div>
+                </div>
+                <div class="grid g4">
+                    <div class="card stat"><span>Atletas no elenco:</span><b id="s1"></b></div>
+                    <div class="card stat"><span>Frequência do elenco:</span><b>87%</b></div>
+                    <div class="card stat"><span>Próximo jogo:</span><b id="s3"></b></div>
+                    <div class="card stat">
+                        <span>Solicitações:</span><b id="s4" style="color: var(--aviso-txt)"></b>
+                    </div>
+                </div>
+                <div class="grid g3 mt">
+                    <div class="card">
+                        <h3>Agenda de eventos:</h3>
+                        <div id="agenda"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Comunicados enviados:</h3>
+                        <div id="coms"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Solicitações pendentes:</h3>
+                        <div id="pend"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="../../assets/js/core/storage.js"></script>
+        <script src="../../assets/js/core/auth.js"></script>
+        <script src="../../assets/js/core/validacao.js"></script>
+        <script src="../../assets/js/core/utils.js"></script>
+        <script src="../../assets/js/components/sidebar.js"></script>
+        <script src="../../assets/js/pages/admin-painel.js"></script>
+    </body>
+</html>

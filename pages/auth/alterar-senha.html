@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Alterar senha · TeamGestor</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/variables.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/css/auth.css" />
+    </head>
+    <body>
+        <main class="auth">
+            <form class="auth-card" id="form" style="max-width: 480px">
+                <h1>Altere sua senha:</h1>
+                <p class="sub">Você pode alterar sua senha aqui se você a esqueceu</p>
+                <label>Digite seu e-mail de cadastro:</label>
+                <div style="display: flex; gap: 8px">
+                    <input id="email" type="email" placeholder="voce@email.com" required /><button
+                        type="button"
+                        class="btn btn-escuro"
+                        id="enviar"
+                    >
+                        Enviar
+                    </button>
+                </div>
+                <label>Código:</label
+                ><input id="codigo" placeholder="Digite o código enviado ao seu e-mail" />
+                <label>Nova senha:</label
+                ><input id="senha" type="password" placeholder="Digite sua nova senha" />
+                <label>Confirmar senha:</label
+                ><input id="senha2" type="password" placeholder="Digite a senha novamente" />
+                <p class="erro" id="erro"></p>
+                <div class="duas" style="margin-top: 12px">
+                    <button class="btn btn-escuro">Alterar senha</button
+                    ><a
+                        class="btn"
+                        href="login.html"
+                        style="text-align: center; text-decoration: none; color: inherit"
+                        >Cancelar</a
+                    >
+                </div>
+            </form>
+        </main>
+        <script src="../../assets/js/core/storage.js"></script>
+        <script src="../../assets/js/core/auth.js"></script>
+        <script src="../../assets/js/core/validacao.js"></script>
+        <script src="../../assets/js/core/utils.js"></script>
+        <script>
+            // Protótipo: o código é fixo (123456). Com o PHP, será enviado por e-mail de verdade.
+            $('#enviar').onclick = () => alert('Código enviado (protótipo): 123456');
+            $('#form').onsubmit = (e) => {
+                e.preventDefault();
+                const l = DB.ler('usuarios'),
+                    u = l.find((x) => x.email === $('#email').value.trim());
+                if (!u) return ($('#erro').textContent = 'E-mail não encontrado.');
+                if ($('#codigo').value !== '123456')
+                    return ($('#erro').textContent = 'Código inválido.');
+                if ($('#senha').value.length < 6 || $('#senha').value !== $('#senha2').value)
+                    return ($('#erro').textContent = 'Senhas inválidas ou diferentes.');
+                u.senha = $('#senha').value;
+                DB.salvar('usuarios', l);
+                alert('Senha alterada!');
+                location.href = 'login.html';
+            };
+        </script>
+    </body>
+</html>

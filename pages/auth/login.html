@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Login · TeamGestor</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/variables.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/css/auth.css" />
+    </head>
+    <body>
+        <main class="auth">
+            <form class="auth-card" id="form">
+                <img class="logo" src="../../assets/img/logo-teamgestor.png" alt="TeamGestor" />
+                <label>E-mail</label
+                ><input id="email" type="email" placeholder="nome@time.com.br" required />
+                <label>Senha</label
+                ><input id="senha" type="password" placeholder="Digite sua Senha Aqui" required />
+                <p style="text-align: right; margin-top: 6px; font-size: 12px">
+                    <a href="alterar-senha.html">Esqueci minha senha</a>
+                </p>
+                <p class="erro" id="erro"></p>
+                <button class="btn btn-escuro btn-bloco">Entrar</button>
+                <hr style="border: 0; border-top: 1px solid var(--borda); margin: 20px 0 0" />
+                <p class="rodape">
+                    Não tem uma conta? <a href="cadastro-atleta.html">Criar Conta</a>
+                </p>
+            </form>
+        </main>
+        <script src="../../assets/js/core/storage.js"></script>
+        <script src="../../assets/js/core/auth.js"></script>
+        <script src="../../assets/js/core/validacao.js"></script>
+        <script src="../../assets/js/core/utils.js"></script>
+        <script src="../../assets/js/pages/login.js"></script>
+    </body>
+</html>

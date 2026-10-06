@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Criar conta · TeamGestor</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/variables.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/css/auth.css" />
+    </head>
+    <body>
+        <main class="auth">
+            <form class="auth-card" id="form">
+                <h1>Criar Conta</h1>
+                <p class="sub">Preencha seus dados para solicitar a entrada em um time</p>
+                <div class="abas">
+                    <a href="cadastro-atleta.html" class="ativo">Atleta</a
+                    ><a href="cadastro-admin.html" class="">Admin</a>
+                </div>
+                <label>Nome completo</label><input id="nome" placeholder="Seu nome" required />
+                <div class="duas">
+                    <div>
+                        <label>CPF</label><input id="cpf" placeholder="000.000.000-00" required />
+                    </div>
+                    <div>
+                        <label>Data de nascimento</label><input id="nasc" type="date" required />
+                    </div>
+                </div>
+                <label>E-mail</label
+                ><input id="email" type="email" placeholder="nome@time.com.br" required />
+                <label>Time</label
+                ><select id="time" required>
+                    <option value="">Selecione o time que deseja entrar</option>
+                </select>
+                <label>Senha</label
+                ><input id="senha" type="password" placeholder="Crie uma senha" required />
+                <label>Confirmar senha</label
+                ><input id="senha2" type="password" placeholder="Repita a senha" required />
+                <p class="nota">
+                    🔒 Seu CPF é usado apenas para confirmar sua identidade junto ao administrador
+                    do time e não é exibido publicamente.
+                </p>
+                <div class="info">
+                    ⓘ Sua solicitação será enviada ao administrador do time escolhido para
+                    aprovação.
+                </div>
+                <label style="font-weight: 400"
+                    ><input type="checkbox" id="termos" />Concordo com os termos de uso e a política
+                    de privacidade do time.</label
+                >
+                <p class="erro" id="erro"></p>
+                <button class="btn btn-escuro btn-bloco">Solicitar entrada no time</button>
+                <p class="rodape">Já tem uma conta? <a href="login.html">Entrar</a></p>
+            </form>
+        </main>
+        <script src="../../assets/js/core/storage.js"></script>
+        <script src="../../assets/js/core/auth.js"></script>
+        <script src="../../assets/js/core/validacao.js"></script>
+        <script src="../../assets/js/core/utils.js"></script>
+        <script src="../../assets/js/pages/cadastro-atleta.js"></script>
+    </body>
+</html>
