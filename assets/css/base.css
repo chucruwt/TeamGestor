@@ -1,13 +1,96 @@
-body{font-family:var(--fonte);background:var(--bg);color:var(--preto);font-size:14px}
-a{color:var(--azul)}h1{font-size:24px;font-weight:600}.sub{color:var(--cinza);font-size:13px}
-.btn{font:inherit;font-weight:500;padding:10px 16px;border-radius:8px;border:1px solid var(--borda);background:var(--branco);cursor:pointer}
-.btn-escuro{background:var(--escuro);color:#fff;border-color:var(--escuro)}
-.btn-verde{background:var(--verde);color:#fff;border-color:var(--verde)}.btn-bloco{width:100%}
-label{display:block;font-size:13px;font-weight:500;margin:12px 0 4px}
-input,select{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--borda);border-radius:8px;background:var(--branco)}
-input::placeholder{color:var(--cinza)}input[type=checkbox]{width:auto;margin-right:8px}
-.card{background:var(--card);border-radius:var(--raio);padding:16px}
-.aviso,.info{font-size:12px;padding:10px 12px;border-radius:8px;margin:12px 0}
-.aviso{background:var(--aviso);color:var(--aviso-txt)}.info{background:var(--info);color:var(--info-txt)}
-.erro{color:#c0392b;font-size:12px;margin-top:8px;min-height:16px}
-.icone{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-size:18px;flex:none}
+body {
+    font-family: var(--fonte);
+    background: var(--bg);
+    color: var(--preto);
+    font-size: 14px;
+}
+a {
+    color: var(--azul);
+}
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.sub {
+    color: var(--cinza);
+    font-size: 13px;
+}
+.btn {
+    font: inherit;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    background: var(--branco);
+    cursor: pointer;
+}
+.btn-escuro {
+    background: var(--escuro);
+    color: #fff;
+    border-color: var(--escuro);
+}
+.btn-verde {
+    background: var(--verde);
+    color: #fff;
+    border-color: var(--verde);
+}
+.btn-bloco {
+    width: 100%;
+}
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 12px 0 4px;
+}
+input,
+select {
+    width: 100%;
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--branco);
+}
+input::placeholder {
+    color: var(--cinza);
+}
+input[type='checkbox'] {
+    width: auto;
+    margin-right: 8px;
+}
+.card {
+    background: var(--card);
+    border-radius: var(--raio);
+    padding: 16px;
+}
+.aviso,
+.info {
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+.aviso {
+    background: var(--aviso);
+    color: var(--aviso-txt);
+}
+.info {
+    background: var(--info);
+    color: var(--info-txt);
+}
+.erro {
+    color: #c0392b;
+    font-size: 12px;
+    margin-top: 8px;
+    min-height: 16px;
+}
+.icone {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    flex: none;
+}

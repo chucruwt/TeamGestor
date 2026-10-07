@@ -1,0 +1,221 @@
+.chips {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.chip {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--borda);
+    background: var(--branco);
+    cursor: pointer;
+}
+.chip.ativo {
+    background: var(--card);
+    font-weight: 500;
+}
+.ev {
+    margin-bottom: 12px;
+}
+.linha {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border-radius: var(--raio);
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.ev .linha {
+    margin: 0;
+}
+.dia {
+    width: 44px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--cinza);
+}
+.dia b {
+    display: block;
+    font-size: 20px;
+    color: var(--preto);
+    font-weight: 500;
+}
+.info-ev {
+    flex: 1;
+    font-weight: 500;
+    min-width: 160px;
+}
+.info-ev small {
+    display: block;
+    color: var(--cinza);
+    font-weight: 400;
+}
+.conf {
+    font-size: 12px;
+    min-width: 100px;
+}
+.conf .ok {
+    color: var(--verde);
+}
+.conf .pd {
+    color: var(--cinza);
+}
+.detalhe {
+    background: var(--card);
+    border-radius: 0 0 10px 10px;
+    padding: 4px 18px 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    border-top: 1px solid var(--borda);
+}
+.pend-box {
+    background: var(--pendente);
+    border-radius: var(--raio);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+.pend-box h3 {
+    color: var(--aviso-txt);
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.pend-item {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.pend-item div {
+    flex: 1;
+    font-size: 13px;
+}
+.pend-item small {
+    display: block;
+    color: var(--cinza);
+    font-size: 11px;
+}
+.av {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--avatar);
+    flex: none;
+}
+.busca {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.busca input {
+    max-width: 340px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+th {
+    text-align: left;
+    color: var(--cinza);
+    font-weight: 500;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--borda);
+}
+td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--borda);
+}
+tr:last-child td {
+    border-bottom: 0;
+}
+.tabela {
+    background: var(--card);
+    border-radius: var(--raio);
+    padding: 8px 16px;
+    overflow-x: auto;
+}
+.badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+.b-v {
+    background: #d8f5d2;
+    color: #0f6b00;
+}
+.b-e {
+    background: var(--borda);
+}
+.b-d {
+    background: var(--aviso);
+    color: var(--aviso-txt);
+}
+dialog {
+    border: 0;
+    border-radius: 14px;
+    padding: 24px;
+    width: min(420px, 92vw);
+    box-shadow: 0 8px 30px #0003;
+    font-family: var(--fonte);
+}
+dialog::backdrop {
+    background: #0006;
+}
+dialog h3 {
+    font-weight: 600;
+}
+.acoes {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: flex-end;
+}
+.btn-p {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+textarea {
+    width: 100%;
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 90px;
+}
+.vazio {
+    color: var(--cinza);
+    font-size: 13px;
+    padding: 12px 0;
+}
+.perfil {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.perfil .av {
+    width: 72px;
+    height: 72px;
+}
+.dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    font-size: 14px;
+}
+.dl small {
+    display: block;
+    color: var(--cinza);
+    font-size: 11px;
+    margin-bottom: 2px;
+}

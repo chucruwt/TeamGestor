@@ -1,4 +1,23 @@
-:root{--bg:#f5f4ee;--branco:#ffffff;--preto:#000000;--cinza:#747474;--borda:#e3e1d9;--azul:#0044b2;
---escuro:#2c2c2a;--card:#f1efe8;--info:#e6f1fb;--info-txt:#185fa5;--aviso:#faeeda;--aviso-txt:#854f0b;
---pendente:#ffd694;--verde:#19ad00;--ic-azul:#9cc2ff;--ic-verde:#9cffa1;--ic-roxo:#a19cff;--ic-laranja:#ffc572;
---avatar:#a6ecff;--fonte:'Inter',system-ui,sans-serif;--raio:10px}
+:root {
+    --bg: #f5f4ee;
+    --branco: #ffffff;
+    --preto: #000000;
+    --cinza: #747474;
+    --borda: #e3e1d9;
+    --azul: #0044b2;
+    --escuro: #2c2c2a;
+    --card: #f1efe8;
+    --info: #e6f1fb;
+    --info-txt: #185fa5;
+    --aviso: #faeeda;
+    --aviso-txt: #854f0b;
+    --pendente: #ffd694;
+    --verde: #19ad00;
+    --ic-azul: #9cc2ff;
+    --ic-verde: #9cffa1;
+    --ic-roxo: #a19cff;
+    --ic-laranja: #ffc572;
+    --avatar: #a6ecff;
+    --fonte: 'Inter', system-ui, sans-serif;
+    --raio: 10px;
+}

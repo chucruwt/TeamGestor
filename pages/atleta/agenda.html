@@ -13,13 +13,20 @@
         <link rel="stylesheet" href="../../assets/css/base.css" />
         <link rel="stylesheet" href="../../assets/css/atleta.css" />
         <link rel="stylesheet" href="../../assets/css/layout.css" />
+        <link rel="stylesheet" href="../../assets/css/paginas.css" />
     </head>
     <body>
         <div class="app">
             <aside class="sidebar" id="sidebar"></aside>
             <main class="conteudo">
-                <h1>Agenda</h1>
-                <p class="sub mt">Em construção.</p>
+                <div class="topo" id="topo"></div>
+                <div class="chips">
+                    <button class="chip ativo" data-f="todos">Todos</button
+                    ><button class="chip" data-f="jogo">Jogos</button
+                    ><button class="chip" data-f="tatico">Treinos táticos</button
+                    ><button class="chip" data-f="fisico">Treinos físicos</button>
+                </div>
+                <div id="lista"></div>
             </main>
         </div>
         <script src="../../assets/js/core/storage.js"></script>
@@ -27,9 +34,7 @@
         <script src="../../assets/js/core/validacao.js"></script>
         <script src="../../assets/js/core/utils.js"></script>
         <script src="../../assets/js/components/sidebar.js"></script>
-        <script>
-            const s = Auth.proteger('atleta');
-            montarSidebar(s, 'agenda');
-        </script>
+        <script src="../../assets/js/core/extras.js"></script>
+        <script src="../../assets/js/pages/atleta-agenda.js"></script>
     </body>
 </html>

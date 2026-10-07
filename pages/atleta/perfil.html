@@ -13,13 +13,31 @@
         <link rel="stylesheet" href="../../assets/css/base.css" />
         <link rel="stylesheet" href="../../assets/css/atleta.css" />
         <link rel="stylesheet" href="../../assets/css/layout.css" />
+        <link rel="stylesheet" href="../../assets/css/paginas.css" />
     </head>
     <body>
         <div class="app">
             <aside class="sidebar" id="sidebar"></aside>
             <main class="conteudo">
-                <h1>Meu perfil</h1>
-                <p class="sub mt">Em construção.</p>
+                <div class="topo" id="topo"></div>
+                <div class="card perfil" id="resumo"></div>
+                <div class="card" style="margin-top: 16px"><div class="dl" id="dados"></div></div>
+                <form id="form" class="card" style="margin-top: 16px">
+                    <h3>Editar meus dados</h3>
+                    <label>Nome completo</label><input id="nome" required />
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+                        <div><label>E-mail</label><input id="email" type="email" required /></div>
+                        <div>
+                            <label>Telefone</label><input id="tel" placeholder="(47) 9000-0000" />
+                        </div>
+                    </div>
+                    <p class="erro" id="erro"></p>
+                    <div class="acoes" style="justify-content: space-between; align-items: center">
+                        <a href="../auth/alterar-senha.html" style="font-size: 13px"
+                            >Alterar senha</a
+                        ><button class="btn btn-escuro">Salvar alterações</button>
+                    </div>
+                </form>
             </main>
         </div>
         <script src="../../assets/js/core/storage.js"></script>
@@ -27,9 +45,7 @@
         <script src="../../assets/js/core/validacao.js"></script>
         <script src="../../assets/js/core/utils.js"></script>
         <script src="../../assets/js/components/sidebar.js"></script>
-        <script>
-            const s = Auth.proteger('atleta');
-            montarSidebar(s, 'perfil');
-        </script>
+        <script src="../../assets/js/core/extras.js"></script>
+        <script src="../../assets/js/pages/atleta-perfil.js"></script>
     </body>
 </html>
