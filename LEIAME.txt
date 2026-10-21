@@ -1,0 +1,91 @@
+TEAMGESTOR - Gerenciamento de Times Esportivos
+==============================================
+
+COMO RODAR
+1. Instale o XAMPP (ou outro servidor com PHP).
+2. Copie a pasta "teamgestor" para dentro de htdocs (XAMPP).
+3. Inicie o Apache e abra: http://localhost/teamgestor/
+   (Alternativa sem XAMPP: dentro da pasta, rode "php -S localhost:8000"
+   e abra http://localhost:8000)
+
+CONTAS DE TESTE
+  Admin : rafael@guarani.com.br / admin123
+  Atleta: joao@guarani.com.br  / atleta123
+(Para mudar, edite o arquivo dados/usuarios.json.)
+
+ARQUIVOS
+  dados.php               vetores e matrizes com todos os dados de exemplo
+                          (os usuários vêm de dados/usuarios.json)
+  menu_adm.php            menu lateral do administrador (lógica)
+  menu_atleta.php         menu lateral do atleta (lógica)
+  template.php            funções que juntam o PHP com o HTML (veja "PHP E HTML SEPARADOS")
+  json.php                funções que leem e gravam os arquivos .json
+  html/                   TODO o HTML do projeto: um .html para cada página .php
+  dados/                  arquivos .json com os usuários cadastrados
+  css/estilo.css          estilo (fonte Inter e as cores do protótipo)
+  js/script.js            as 3 coisas feitas em JavaScript
+  img/                    ícones e logo extraídos do protótipo
+
+  Telas de entrada:   login.php, cadastro_atleta.php, cadastro_admin.php, alterar_senha.php
+  Telas do admin:     painel_adm.php, atletas_adm.php, agenda_adm.php,
+                      partidas_adm.php, comunicados_adm.php, permissoes_adm.php
+  Telas do atleta:    painel_atleta.php, perfil_atleta.php, agenda_atleta.php,
+                      plano_treino.php, comunicados_atleta.php, justificar_ausencia.php
+
+PHP E HTML SEPARADOS
+  Cada página tem dois arquivos com o mesmo nome:
+    login.php         só a lógica (decisões, repetições, validações)
+    html/login.html   só o HTML da página
+  O endereço no navegador continua o mesmo (login.php, painel_adm.php...).
+
+  No .html, os valores que vêm do PHP aparecem como {{nome}}. Trechos que
+  se repetem (linhas de tabela, opções de select) ou que só aparecem às vezes
+  (mensagem de erro) ficam entre dois comentários:
+      <!-- inicio:linha -->  ...  <!-- fim:linha -->
+  O PHP recorta o trecho com extrair_bloco(), preenche com preencher()
+  (dentro de um for, por exemplo) e devolve o resultado para a página.
+  Para mudar o visual de uma tela, edite só o .html dela.
+
+USUÁRIOS EM ARQUIVOS .JSON (pasta dados/)
+  usuarios.json            contas que podem entrar: nome, e-mail, senha e tipo
+  cadastros_atletas.json   tudo o que o atleta preencheu em cadastro_atleta.php
+  cadastros_admins.json    tudo o que o administrador preencheu em cadastro_admin.php
+
+  - Cadastro de atleta e de administrador gravam nos arquivos acima.
+    A conta já pode entrar no login logo depois de cadastrar.
+  - "Esqueci minha senha" grava a senha nova em usuarios.json.
+  - Não é permitido cadastrar dois usuários com o mesmo e-mail.
+  - Para criar, apagar ou editar um usuário na mão, abra o .json num editor
+    de texto (mantenha as vírgulas e aspas no mesmo formato dos outros).
+  - A pasta dados/ precisa ter permissão de escrita (no XAMPP já tem).
+  - dados/.htaccess bloqueia o acesso aos .json pelo navegador (Apache/XAMPP).
+    Com "php -S" esse bloqueio não existe, então use só para testes.
+
+O QUE O PHP USA
+  Entrada e saída: $_POST, $_GET e echo (o HTML fica em html/, o PHP só o preenche)
+  Decisões: if / elseif / else
+  Repetições: for e while
+  Vetores e matrizes: tudo em dados.php
+
+  Alguns comandos pequenos além disso (cada um aparece poucas vezes):
+    count()            diz quantas linhas tem um vetor (usado nos "for")
+    isset()            confere se um campo ou parâmetro chegou
+    include            reaproveita o menu e os dados em várias páginas
+    header() e exit    levam o usuário para outra página depois do login
+    htmlspecialchars() protege o texto digitado pelo usuário antes de mostrar
+    round()            arredonda a frequência média e a porcentagem
+    (int)              transforma o texto recebido em número inteiro
+
+LIMITES
+  - Só os usuários (cadastros, contas e troca de senha) ficam salvos, nos
+    arquivos .json. Todo o resto continua como antes: aprovações, comunicados,
+    resultados, eventos e permissões aparecem na tela naquele momento, mas
+    somem ao recarregar ou navegar para outra página.
+  - Os cadastros novos não aparecem na lista "Solicitações pendentes" do
+    administrador (ela continua vindo de dados.php).
+  - As senhas ficam em texto puro nos .json, como já eram na matriz $usuarios.
+    Antes de usar com gente de verdade, troque por password_hash() e
+    password_verify().
+  - Não há sessão de login: quem souber o endereço de uma página consegue abri-la.
+  - O código de "esqueci minha senha" é sempre 123456 (modo demonstração).
+  - Remova o quadro "Contas de teste" do login.php antes de entregar.

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Olá, {{primeiro_nome}}</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+                <div class="topo-acoes">
+                    <a class="btn btn-claro" href="comunicados_adm.php"><img src="img/sino.png" alt="">Comunicado</a>
+                    <a class="btn btn-escuro" href="agenda_adm.php?novo=1">+ Novo evento</a>
+                </div>
+            </header>
+
+            <section class="stats" aria-label="Resumo do time">
+                <div class="stat">
+                    <div class="rotulo">Atletas no elenco:</div>
+                    <div class="valor">{{total_atletas}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Frequência do elenco:</div>
+                    <div class="valor">{{frequencia_media}}%</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Próximo Jogo:</div>
+                    <div class="valor texto">{{proximo_jogo}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Solicitações:</div>
+                    <div class="valor destaque">{{total_pendentes}}</div>
+                </div>
+            </section>
+
+            <section class="paineis">
+                <div class="painel">
+                    <h2>Agenda de eventos:</h2>
+                    <!-- inicio:item_evento -->
+                    <div class="item-agenda">
+                        <span class="icone-evento pequeno {{cor}}"><img src="img/{{icone}}" alt=""></span>
+                        <div>
+                            <div class="titulo">{{titulo}}</div>
+                            <div class="sub">{{dia_semana}}, {{dia}} {{mes}} - {{hora}}</div>
+                        </div>
+                    </div>
+                    <!-- fim:item_evento -->
+                    <a class="ver-mais" href="agenda_adm.php">Ver agenda completa</a>
+                </div>
+
+                <div class="painel">
+                    <h2>Comunicados enviados:</h2>
+                    <!-- inicio:item_comunicado -->
+                    <p class="msg">{{texto}}</p>
+                    <!-- fim:item_comunicado -->
+                    <a class="ver-mais" href="comunicados_adm.php">Ver todos</a>
+                </div>
+
+                <div class="painel">
+                    <h2>Solicitações pendentes:</h2>
+                    <!-- inicio:item_pendente -->
+                    <div class="pessoa">
+                        <span class="avatar laranja"></span>
+                        {{nome}}
+                    </div>
+                    <!-- fim:item_pendente -->
+                    <a class="ver-mais" href="atletas_adm.php">Analisar solicitações</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

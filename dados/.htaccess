@@ -1,0 +1,9 @@
+# Impede que alguém abra os .json (com e-mails e senhas) digitando o endereço no navegador.
+# Funciona no Apache/XAMPP. O PHP continua lendo os arquivos normalmente.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

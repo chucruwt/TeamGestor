@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comunicados - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Comunicados</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:aviso_mensagem -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">{{mensagem}}</div>
+            <!-- fim:aviso_mensagem -->
+
+            <form class="cartao-form" method="post" action="comunicados_adm.php">
+                <h2>Novo comunicado</h2>
+
+                <!-- inicio:aviso_erro -->
+                <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+                <!-- fim:aviso_erro -->
+
+                <div class="campo">
+                    <label for="destino">Enviar para</label>
+                    <select id="destino" name="destino">
+                        <!-- inicio:opcao_destino -->
+                        <option value="{{valor}}"{{marcar}}>{{texto}}</option>
+                        <!-- fim:opcao_destino -->
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="texto">Mensagem</label>
+                    <textarea id="texto" name="texto" placeholder="Ex: Levar uniforme reserva no sábado.">{{f_texto}}</textarea>
+                </div>
+
+                <div class="botoes-linha">
+                    <button type="submit" class="btn btn-escuro">Enviar comunicado</button>
+                </div>
+            </form>
+
+            <h2 class="titulo-secao">Comunicados enviados</h2>
+
+            <!-- inicio:item_comunicado -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <span class="icone-evento pequeno azul"><img src="img/sino.png" alt=""></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">{{texto}}</div>
+                        <div class="evento-sub">Para: {{destino}} - {{data}}</div>
+                    </div>
+                </div>
+            </article>
+            <!-- fim:item_comunicado -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

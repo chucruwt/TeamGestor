@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Permissões - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Permissões</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:aviso_mensagem -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">{{mensagem}}</div>
+            <!-- fim:aviso_mensagem -->
+
+            <section class="papeis" aria-label="Perfis de acesso">
+                <div class="papel">
+                    <img src="img/escudo-laranja.png" alt="">
+                    <div>
+                        <strong>Administrador</strong>
+                        <span>Acesso total ao time, inclusive às permissões.</span>
+                    </div>
+                </div>
+                <div class="papel">
+                    <img src="img/permissoes.png" alt="">
+                    <div>
+                        <strong>Comissão técnica</strong>
+                        <span>Acessa somente o que estiver marcado abaixo.</span>
+                    </div>
+                </div>
+                <div class="papel">
+                    <img src="img/perfil.png" alt="">
+                    <div>
+                        <strong>Atleta</strong>
+                        <span>Vê agenda, plano de treino e comunicados e confirma presença.</span>
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="titulo-secao">Comissão técnica</h2>
+
+            <form method="post" action="permissoes_adm.php">
+                <div class="tabela-caixa">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Membro</th>
+                                <!-- inicio:titulo_permissao -->
+                                <th class="td-centro">{{nome}}</th>
+                                <!-- fim:titulo_permissao -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- inicio:linha_membro -->
+                            <tr>
+                                <td>
+                                    <span class="td-nome">
+                                        <span class="avatar"></span>
+                                        <span>{{nome}}<br><small style="font-weight: 400; color: #747474;">{{funcao}}</small></span>
+                                    </span>
+                                </td>
+                                <!-- inicio:celula_permissao -->
+                                <td class="td-centro">
+                                    <input type="checkbox" name="perm_{{linha}}_{{coluna}}" aria-label="{{membro}}: {{permissao}}"{{marcado}}{{bloqueado}}>
+                                </td>
+                                <!-- fim:celula_permissao -->
+                            </tr>
+                            <!-- fim:linha_membro -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="botoes-linha" style="justify-content: flex-start; margin-top: 16px;">
+                    <button type="submit" class="btn btn-escuro" style="flex: none;">Salvar permissões</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

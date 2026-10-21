@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plano de treino - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Plano de treino</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <section class="painel" style="margin-bottom: 20px;">
+                <h2>Plano de treino para a semana:</h2>
+                <p class="texto-plano">{{plano_resumo}}</p>
+            </section>
+
+            <h2 class="titulo-secao">Sessões previstas</h2>
+
+            <!-- inicio:item_sessao -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <span class="icone-evento {{cor}}"><img src="img/{{icone}}" alt=""></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">{{tipo_nome}} - {{data}}</div>
+                        <div class="evento-sub">{{hora}} - Foco: {{foco}}</div>
+                    </div>
+                </div>
+            </article>
+            <!-- fim:item_sessao -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

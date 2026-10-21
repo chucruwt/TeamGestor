@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agenda - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Agenda</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+                <div class="topo-acoes">
+                    <a class="btn btn-escuro" href="agenda_adm.php?novo=1">+ Criar evento</a>
+                </div>
+            </header>
+
+            <!-- inicio:aviso_mensagem -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">{{mensagem}}</div>
+            <!-- fim:aviso_mensagem -->
+
+            <!-- inicio:formulario_evento -->
+            <form class="cartao-form" method="post" action="agenda_adm.php?novo=1">
+                <h2>Novo evento</h2>
+
+                <!-- inicio:aviso_erro -->
+                <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+                <!-- fim:aviso_erro -->
+
+                <div class="campo">
+                    <label for="tipo">Tipo de evento</label>
+                    <select id="tipo" name="tipo">
+                        <!-- inicio:opcao_tipo -->
+                        <option value="{{valor}}"{{marcar}}>{{texto}}</option>
+                        <!-- fim:opcao_tipo -->
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Jogo vs. Palmeirinha FC" value="{{titulo}}">
+                </div>
+
+                <div class="linha-campos">
+                    <div class="campo">
+                        <label for="dia_semana">Dia da semana</label>
+                        <select id="dia_semana" name="dia_semana">
+                            <!-- inicio:opcao_dia_semana -->
+                            <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                            <!-- fim:opcao_dia_semana -->
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="hora">Horário</label>
+                        <input type="time" id="hora" name="hora" value="{{hora}}">
+                    </div>
+                </div>
+
+                <div class="linha-campos">
+                    <div class="campo">
+                        <label for="dia">Dia do mês</label>
+                        <input type="number" id="dia" name="dia" min="1" max="31" placeholder="Ex: 15" value="{{dia}}">
+                    </div>
+                    <div class="campo">
+                        <label for="mes">Mês</label>
+                        <select id="mes" name="mes">
+                            <!-- inicio:opcao_mes -->
+                            <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                            <!-- fim:opcao_mes -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="local">Local</label>
+                    <input type="text" id="local" name="local" placeholder="Ex: Ginásio Municipal" value="{{local}}">
+                </div>
+
+                <div class="botoes-linha">
+                    <button type="submit" class="btn btn-escuro">Salvar evento</button>
+                    <a class="btn btn-contorno" href="agenda_adm.php">Cancelar</a>
+                </div>
+            </form>
+            <!-- fim:formulario_evento -->
+
+            <nav class="chips" aria-label="Filtrar eventos">
+                <!-- inicio:chip -->
+                <a class="{{classe}}" href="agenda_adm.php?filtro={{filtro}}"{{atual}}>{{texto}}</a>
+                <!-- fim:chip -->
+            </nav>
+
+            <!-- inicio:titulo_grupo -->
+            <h2 class="titulo-secao">{{grupo}}</h2>
+            <!-- fim:titulo_grupo -->
+
+            <!-- inicio:evento -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <div class="evento-data">
+                        <span class="sem">{{dia_semana}}</span>
+                        <span class="dia">{{dia}}</span>
+                    </div>
+                    <span class="icone-evento {{cor}}"><img src="img/{{icone}}" alt="{{tipo_nome}}"></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">{{titulo}}</div>
+                        <div class="evento-sub">{{hora}} {{local}}</div>
+                    </div>
+                    <div class="evento-status">
+                        <span class="ok">{{confirmados}} Confirmados</span>
+                        {{pendentes}} Pendentes
+                    </div>
+                    <button type="button" class="btn-expandir" aria-expanded="false" aria-label="Mostrar detalhes do evento">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5f5e5a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                </div>
+                <div class="evento-detalhes">
+                    <p><strong>Tipo:</strong> {{tipo_nome}}</p>
+                    <p><strong>Data:</strong> {{dia_semana}}, {{dia}} de {{mes}} às {{hora}}</p>
+                    <p><strong>Local:</strong> {{local}}</p>
+                    <div class="barra" aria-hidden="true"><div style="width: {{porcentagem}}%;"></div></div>
+                    <p>{{porcentagem}}% do elenco já confirmou presença.</p>
+                </div>
+            </article>
+            <!-- fim:evento -->
+
+            <!-- inicio:vazio -->
+            <p class="vazio">Nenhum evento encontrado. Clique em "Criar evento" para marcar o primeiro.</p>
+            <!-- fim:vazio -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

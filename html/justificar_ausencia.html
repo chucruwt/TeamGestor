@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Justificar ausência - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Justificar ausência</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:sucesso -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">
+                Justificativa enviada para a comissão técnica.
+            </div>
+            <a class="btn btn-escuro" href="painel_atleta.php">Voltar ao painel</a>
+            <!-- fim:sucesso -->
+
+            <!-- inicio:formulario -->
+            <form class="cartao-form" method="post" action="justificar_ausencia.php">
+                <!-- inicio:aviso_erro -->
+                <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+                <!-- fim:aviso_erro -->
+
+                <div class="campo">
+                    <label for="evento">Evento</label>
+                    <select id="evento" name="evento">
+                        <!-- inicio:opcao_evento -->
+                        <option value="{{valor}}"{{marcar}}>{{texto}}</option>
+                        <!-- fim:opcao_evento -->
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="motivo">Motivo</label>
+                    <select id="motivo" name="motivo">
+                        <option value="">Selecione</option>
+                        <!-- inicio:opcao_motivo -->
+                        <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                        <!-- fim:opcao_motivo -->
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="detalhes">Detalhes</label>
+                    <textarea id="detalhes" name="detalhes" placeholder="Conte o que aconteceu">{{detalhes}}</textarea>
+                </div>
+
+                <div class="botoes-linha">
+                    <button type="submit" class="btn btn-escuro">Enviar justificativa</button>
+                    <a class="btn btn-contorno" href="painel_atleta.php">Cancelar</a>
+                </div>
+            </form>
+            <!-- fim:formulario -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

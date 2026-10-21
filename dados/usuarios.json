@@ -1,0 +1,20 @@
+[
+    {
+        "nome": "Rafael Costa",
+        "email": "rafael@guarani.com.br",
+        "senha": "admin123",
+        "tipo": "admin"
+    },
+    {
+        "nome": "João Pedro Alves",
+        "email": "joao@guarani.com.br",
+        "senha": "atleta123",
+        "tipo": "atleta"
+    },
+    {
+        "nome": "Pietro Darolt",
+        "email": "pietrodarolt2@gmail.com",
+        "senha": "213554Ab.",
+        "tipo": "atleta"
+    }
+]

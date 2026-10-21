@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comunicados - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Comunicados do time</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:item_comunicado -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <span class="icone-evento pequeno azul"><img src="img/sino.png" alt=""></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">{{texto}}</div>
+                        <div class="evento-sub">{{data}}</div>
+                    </div>
+                </div>
+            </article>
+            <!-- fim:item_comunicado -->
+
+            <!-- inicio:vazio -->
+            <p class="vazio">Nenhum comunicado por enquanto.</p>
+            <!-- fim:vazio -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

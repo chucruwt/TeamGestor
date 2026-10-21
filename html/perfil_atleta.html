@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meu perfil - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Meu perfil</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+                <div class="topo-acoes">
+                    <a class="btn btn-contorno" href="alterar_senha.php">Alterar senha</a>
+                </div>
+            </header>
+
+            <section class="perfil-card">
+                <span class="avatar grande"></span>
+
+                <div>
+                    <h2>{{nome}}</h2>
+                    <p class="sub" style="color: #747474;">Atleta - nº{{numero}}</p>
+                </div>
+
+                <dl class="perfil-dados">
+                    <div>
+                        <dt>Posição</dt>
+                        <dd>{{posicao}}</dd>
+                    </div>
+                    <div>
+                        <dt>Número da camisa</dt>
+                        <dd>{{numero}}</dd>
+                    </div>
+                    <div>
+                        <dt>E-mail</dt>
+                        <dd>{{email}}</dd>
+                    </div>
+                    <div>
+                        <dt>Frequência nos treinos</dt>
+                        <dd>{{frequencia}}%</dd>
+                    </div>
+                    <div>
+                        <dt>Time</dt>
+                        <dd>{{time_completo}}</dd>
+                    </div>
+                </dl>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

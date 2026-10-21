@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agenda - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Minha agenda</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+                <div class="topo-acoes">
+                    <a class="btn btn-contorno" href="justificar_ausencia.php">Justificar ausência</a>
+                </div>
+            </header>
+
+            <!-- inicio:evento -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <div class="evento-data">
+                        <span class="sem">{{dia_semana}}</span>
+                        <span class="dia">{{dia}}</span>
+                    </div>
+                    <span class="icone-evento {{cor}}"><img src="img/{{icone}}" alt="{{tipo_nome}}"></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">{{titulo}}</div>
+                        <div class="evento-sub">{{mes}} - {{hora}} - {{local}}</div>
+                    </div>
+
+                    <div class="evento-acoes">
+                        <!-- inicio:acoes_sim -->
+                        <span class="evento-status"><span class="ok">Presença confirmada</span></span>
+                        <a class="link" href="agenda_atleta.php">Desfazer</a>
+                        <!-- fim:acoes_sim -->
+                        <!-- inicio:acoes_nao -->
+                        <span class="evento-status">Ausência registrada</span>
+                        <a class="link" href="justificar_ausencia.php">Justificar</a>
+                        <!-- fim:acoes_nao -->
+                        <!-- inicio:acoes_botoes -->
+                        <a class="btn btn-verde btn-pequeno" href="agenda_atleta.php?evento={{id}}&amp;resp=sim">Confirmar</a>
+                        <a class="btn btn-contorno btn-pequeno" href="agenda_atleta.php?evento={{id}}&amp;resp=nao">Não poderei ir</a>
+                        <!-- fim:acoes_botoes -->
+                    </div>
+                </div>
+            </article>
+            <!-- fim:evento -->
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

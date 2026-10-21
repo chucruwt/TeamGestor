@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Olá, {{primeiro_nome}}</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+                <div class="topo-acoes">
+                    <a class="btn btn-contorno" href="justificar_ausencia.php">Justificar ausência</a>
+                </div>
+            </header>
+
+            <section class="proximo" aria-label="Próximo compromisso">
+                <span class="icone-evento {{cor_proximo}}"><img src="img/{{icone_proximo}}" alt=""></span>
+                <div class="texto">
+                    <div class="titulo">Próximo compromisso: {{titulo_proximo}}</div>
+                    <div class="sub">{{dia_semana_proximo}}, {{dia_proximo}} {{mes_proximo}} - {{hora_proximo}}<br>{{local_proximo}}</div>
+                </div>
+
+                <!-- inicio:presenca_sim -->
+                <div class="aviso aviso-ok" style="margin-top: 0;" role="status">
+                    Presença confirmada! &nbsp;<a class="link" href="painel_atleta.php">Desfazer</a>
+                </div>
+                <!-- fim:presenca_sim -->
+                <!-- inicio:presenca_nao -->
+                <div class="aviso aviso-alerta" style="margin-top: 0;" role="status">
+                    Ausência registrada. &nbsp;<a class="link" href="justificar_ausencia.php">Justificar</a>
+                </div>
+                <!-- fim:presenca_nao -->
+                <!-- inicio:presenca_botoes -->
+                <div class="topo-acoes">
+                    <a class="btn btn-verde btn-pequeno" href="painel_atleta.php?presenca=sim">Confirmar Presença</a>
+                    <a class="btn btn-contorno btn-pequeno" href="painel_atleta.php?presenca=nao">Não poderei ir</a>
+                </div>
+                <!-- fim:presenca_botoes -->
+            </section>
+
+            <section class="grade-atleta">
+                <div class="painel">
+                    <h2>Minha agenda:</h2>
+                    <!-- inicio:item_evento -->
+                    <div class="item-agenda">
+                        <span class="icone-evento pequeno {{cor}}"><img src="img/{{icone}}" alt=""></span>
+                        <div>
+                            <div class="titulo">{{titulo}}</div>
+                            <div class="sub">{{dia_semana}}, {{dia}} {{mes}} - {{hora}}</div>
+                        </div>
+                    </div>
+                    <!-- fim:item_evento -->
+                    <a class="ver-mais" href="agenda_atleta.php">Ver agenda completa</a>
+                </div>
+
+                <div class="coluna">
+                    <div class="painel">
+                        <h2>Plano de treino para a semana:</h2>
+                        <p class="texto-plano">{{plano_resumo}}</p>
+                        <a class="ver-mais" href="plano_treino.php">Ver plano completo</a>
+                    </div>
+
+                    <div class="painel">
+                        <h2>Comunicados do time:</h2>
+                        <!-- inicio:item_comunicado -->
+                        <p class="msg">{{texto}}</p>
+                        <!-- fim:item_comunicado -->
+                        <a class="ver-mais" href="comunicados_atleta.php">Ver todos</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1313 @@
+/* =====================================================
+   TeamGestor - estilo.css
+   Fonte: Inter
+   Cores: exatamente as do protótipo (ver :root)
+   ===================================================== */
+
+:root {
+    /* página 1 do protótipo */
+    --fundo: #f5f4ee;
+    --branco: #ffffff;
+    --preto: #000000;
+    --cinza: #747474;
+    --bege: #e3e1d9;
+    --azul: #0044b2;
+
+    /* página 2 */
+    --grafite: #2c2c2a;
+    --card: #f1efe8;
+    --azul-claro: #e6f1fb;
+    --azul-info: #185fa5;
+    --cinza-escuro: #5f5e5a;
+    --cinza-medio: #888780;
+    --creme: #faeeda;
+    --marrom: #854f0b;
+    --azul-icone: #9cc2ff;
+    --verde-icone: #9cffa1;
+    --roxo-icone: #a19cff;
+    --laranja: #ffc572;
+
+    /* página 3 */
+    --laranja-claro: #ffd694;
+    --verde: #19ad00;
+    --ciano: #a6ecff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--grafite);
+    background: var(--branco);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(0.94);
+}
+
+.btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-escuro {
+    background: var(--grafite);
+    color: var(--branco);
+}
+
+.btn-escuro:hover {
+    filter: none;
+    background: var(--preto);
+}
+
+.btn-claro {
+    background: var(--card);
+    border-color: var(--bege);
+}
+
+.btn-contorno {
+    background: var(--branco);
+    border-color: var(--bege);
+}
+
+.btn-verde {
+    background: var(--verde);
+    color: var(--branco);
+}
+
+.btn-pequeno {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-bloco {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.link {
+    color: var(--azul);
+    text-decoration: underline;
+}
+
+/* ---------- Telas de entrada (login, cadastros, alterar senha) ---------- */
+body.auth {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    background: var(--fundo);
+}
+
+.auth-caixa {
+    width: 100%;
+    max-width: 440px;
+    padding: 36px 32px;
+    background: var(--branco);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.auth-caixa.larga {
+    max-width: 500px;
+}
+
+.auth-logo {
+    width: 250px;
+    margin: 0 auto 28px;
+}
+
+.auth-logo.pequeno {
+    width: 150px;
+    margin: 0 0 18px;
+}
+
+.auth-titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.auth-sub {
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--cinza);
+}
+
+.abas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 18px;
+    padding: 4px;
+    border: 1px solid var(--bege);
+    border-radius: 10px;
+}
+
+.aba {
+    padding: 8px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--cinza);
+}
+
+.aba.ativa {
+    background: var(--card);
+    box-shadow: inset 0 0 0 1px var(--bege);
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.secao-form {
+    margin-top: 22px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cinza);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--bege);
+    border-radius: 8px;
+    background: var(--branco);
+    font-size: 14px;
+}
+
+.campo textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--cinza);
+}
+
+.linha-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.campo-senha {
+    position: relative;
+}
+
+.campo-senha input {
+    padding-right: 44px;
+}
+
+.btn-olho {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    padding: 4px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-olho img {
+    width: 20px;
+    height: 20px;
+}
+
+.campo-com-botao {
+    display: flex;
+    gap: 8px;
+}
+
+.campo-com-botao input {
+    flex: 1;
+    min-width: 0;
+}
+
+.campo-com-botao .btn {
+    margin: 0;
+}
+
+.nota {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--cinza);
+}
+
+.nota img {
+    flex: none;
+    width: 14px;
+    height: 14px;
+}
+
+.aviso {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.aviso img {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+}
+
+.aviso .ponto {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: var(--marrom);
+}
+
+.aviso-info {
+    background: var(--azul-claro);
+    color: var(--azul-info);
+}
+
+.aviso-alerta {
+    background: var(--creme);
+    color: var(--marrom);
+}
+
+.aviso-erro {
+    background: var(--creme);
+    color: var(--marrom);
+    border: 1px solid var(--marrom);
+    font-weight: 500;
+}
+
+.aviso-ok {
+    background: var(--verde-icone);
+    color: var(--grafite);
+    font-weight: 500;
+}
+
+.termo {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 12px;
+}
+
+.termo input {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+    accent-color: var(--grafite);
+}
+
+.divisor {
+    margin: 18px 0;
+    border: 0;
+    border-top: 1px solid var(--bege);
+}
+
+.rodape-auth {
+    margin-top: 16px;
+    font-size: 13px;
+    text-align: center;
+    color: var(--cinza-escuro);
+}
+
+.link-direita {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.botoes-linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.botoes-linha .btn {
+    flex: 1;
+}
+
+.contas-teste {
+    margin-top: 18px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--card);
+    font-size: 11px;
+    color: var(--cinza-escuro);
+}
+
+/* ---------- Estrutura das telas internas ---------- */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    flex: none;
+    width: 240px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 14px;
+    background: var(--fundo);
+}
+
+.menu-logo {
+    width: 170px;
+    margin: 0 0 28px 8px;
+}
+
+.menu-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--cinza);
+}
+
+.menu-item img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.55;
+}
+
+.menu-item:hover {
+    background: var(--card);
+}
+
+.menu-item.ativo {
+    background: var(--branco);
+    color: var(--preto);
+    font-weight: 500;
+}
+
+.menu-item.ativo img {
+    opacity: 1;
+}
+
+.menu-usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding: 12px 8px 0;
+    border-top: 1px solid var(--bege);
+}
+
+.menu-usuario > img {
+    width: 28px;
+    height: 28px;
+}
+
+.menu-usuario strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.menu-usuario span {
+    font-size: 11px;
+    color: var(--cinza);
+}
+
+.menu-usuario .sair {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--azul);
+    text-decoration: underline;
+}
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 32px 40px 48px;
+    background: var(--branco);
+}
+
+.topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.topo h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--preto);
+}
+
+.topo .sub {
+    font-size: 13px;
+    color: var(--cinza);
+}
+
+.topo-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.titulo-secao {
+    margin: 24px 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.vazio {
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--card);
+    text-align: center;
+    color: var(--cinza-escuro);
+}
+
+.mensagem-pagina {
+    margin: 0 0 20px;
+    max-width: 640px;
+}
+
+/* ---------- Cartões de números ---------- */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stats.cinco {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.stat {
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.stat .rotulo {
+    font-size: 12px;
+    color: var(--cinza);
+}
+
+.stat .valor {
+    margin-top: 6px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--preto);
+}
+
+.stat .valor.texto {
+    font-size: 22px;
+}
+
+.stat .valor.destaque {
+    color: var(--marrom);
+}
+
+/* ---------- Painéis ---------- */
+.paineis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.painel {
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.painel h2 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.painel .ver-mais {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--azul);
+    text-decoration: underline;
+}
+
+.item-agenda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+}
+
+.item-agenda .titulo {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--preto);
+}
+
+.item-agenda .sub {
+    font-size: 12px;
+    color: var(--cinza-escuro);
+}
+
+.msg {
+    padding: 6px 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cinza-escuro);
+}
+
+.msg small {
+    display: block;
+    font-weight: 400;
+    color: var(--cinza-medio);
+}
+
+.pessoa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.avatar {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ciano);
+}
+
+.avatar.laranja {
+    background: var(--laranja);
+}
+
+.avatar.grande {
+    width: 84px;
+    height: 84px;
+}
+
+/* ---------- Ícones de evento ---------- */
+.icone-evento {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.icone-evento img {
+    width: 22px;
+    height: 22px;
+}
+
+.icone-evento.pequeno {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+.icone-evento.pequeno img {
+    width: 17px;
+    height: 17px;
+}
+
+.icone-evento.azul {
+    background: var(--azul-icone);
+}
+
+.icone-evento.verde {
+    background: var(--verde-icone);
+}
+
+.icone-evento.roxo {
+    background: var(--roxo-icone);
+}
+
+/* ---------- Atletas ---------- */
+.pendentes {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 14px;
+    background: var(--laranja-claro);
+}
+
+.pendentes h2 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--marrom);
+}
+
+.solicitacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    background: var(--branco);
+}
+
+.solicitacao:last-child {
+    margin-bottom: 0;
+}
+
+.solicitacao .info {
+    flex: 1;
+    min-width: 0;
+}
+
+.solicitacao .nome {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.solicitacao .detalhe {
+    font-size: 12px;
+    color: var(--cinza);
+}
+
+.solicitacao .botoes {
+    display: flex;
+    gap: 8px;
+}
+
+.barra-busca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.busca {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.busca svg {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+}
+
+.busca input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--bege);
+    border-radius: 8px;
+    background: var(--branco);
+}
+
+.filtro-form {
+    display: flex;
+    gap: 8px;
+}
+
+.filtro-form select {
+    padding: 10px 12px;
+    border: 1px solid var(--bege);
+    border-radius: 8px;
+    background: var(--branco);
+}
+
+.tabela-caixa {
+    padding: 6px 16px 10px;
+    border-radius: 12px;
+    background: var(--card);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 12px 8px;
+    border-bottom: 1.5px solid var(--bege);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--cinza-escuro);
+}
+
+td {
+    padding: 11px 8px;
+    border-bottom: 1px solid var(--bege);
+}
+
+tr:last-child td {
+    border-bottom: 0;
+}
+
+.td-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.td-centro {
+    text-align: center;
+}
+
+th.td-centro {
+    text-align: center;
+}
+
+.freq-baixa {
+    color: var(--marrom);
+    font-weight: 600;
+}
+
+details.mais {
+    position: relative;
+}
+
+details.mais summary {
+    padding: 2px 8px;
+    list-style: none;
+    cursor: pointer;
+    color: var(--cinza);
+}
+
+details.mais summary::-webkit-details-marker {
+    display: none;
+}
+
+.mais-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 5;
+    min-width: 170px;
+    padding: 6px;
+    border: 1px solid var(--bege);
+    border-radius: 8px;
+    background: var(--branco);
+}
+
+.mais-menu a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--marrom);
+}
+
+.mais-menu a:hover {
+    background: var(--creme);
+}
+
+/* ---------- Agenda ---------- */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.chip {
+    padding: 6px 16px;
+    border: 1px solid var(--bege);
+    border-radius: 999px;
+    background: var(--branco);
+    font-size: 13px;
+    color: var(--cinza-escuro);
+}
+
+.chip:hover {
+    background: var(--fundo);
+}
+
+.chip.ativo {
+    background: var(--card);
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.evento {
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.evento-linha {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+}
+
+.evento-data {
+    flex: none;
+    width: 44px;
+    text-align: center;
+}
+
+.evento-data .sem {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--cinza);
+}
+
+.evento-data .dia {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--preto);
+}
+
+.evento-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.evento-titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.evento-sub {
+    font-size: 12px;
+    color: var(--cinza-escuro);
+}
+
+.evento-status {
+    flex: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cinza-escuro);
+}
+
+.evento-status .ok {
+    display: block;
+    color: var(--verde);
+    font-weight: 600;
+}
+
+.evento-acoes {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-expandir {
+    padding: 6px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-expandir svg {
+    display: block;
+    transition: transform 0.2s;
+}
+
+.evento.aberto .btn-expandir svg {
+    transform: rotate(180deg);
+}
+
+.evento-detalhes {
+    display: none;
+    margin: 0 18px;
+    padding: 12px 0 16px;
+    border-top: 1px solid var(--bege);
+    font-size: 13px;
+    color: var(--cinza-escuro);
+}
+
+.evento.aberto .evento-detalhes {
+    display: block;
+}
+
+.evento-detalhes p {
+    margin-bottom: 4px;
+}
+
+.barra {
+    height: 8px;
+    margin: 10px 0 4px;
+    border-radius: 999px;
+    background: var(--bege);
+    overflow: hidden;
+}
+
+.barra div {
+    height: 100%;
+    background: var(--verde);
+}
+
+.cartao-form {
+    max-width: 640px;
+    margin-bottom: 24px;
+    padding: 4px 20px 20px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.cartao-form h2 {
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.cartao-form .botoes-linha {
+    justify-content: flex-start;
+}
+
+.cartao-form .botoes-linha .btn {
+    flex: none;
+}
+
+/* ---------- Partidas ---------- */
+.selo {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.selo-v {
+    background: var(--verde-icone);
+}
+
+.selo-e {
+    background: var(--bege);
+}
+
+.selo-d {
+    background: var(--creme);
+    color: var(--marrom);
+}
+
+.placar {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ---------- Permissões ---------- */
+.papeis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.papel {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.papel img {
+    flex: none;
+    width: 28px;
+    height: 28px;
+}
+
+.papel strong {
+    display: block;
+    font-size: 14px;
+    color: var(--preto);
+}
+
+.papel span {
+    font-size: 12px;
+    color: var(--cinza-escuro);
+}
+
+td input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--grafite);
+    cursor: pointer;
+}
+
+td input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ---------- Telas do atleta ---------- */
+.proximo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.proximo .icone-evento {
+    width: 48px;
+    height: 48px;
+}
+
+.proximo .icone-evento img {
+    width: 26px;
+    height: 26px;
+}
+
+.proximo .texto {
+    flex: 1;
+    min-width: 200px;
+}
+
+.proximo .titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.proximo .sub {
+    font-size: 12px;
+    color: var(--cinza-escuro);
+}
+
+.grade-atleta {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 12px;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.painel p.texto-plano {
+    font-size: 13px;
+    color: var(--cinza-escuro);
+}
+
+.perfil-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    max-width: 720px;
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--card);
+}
+
+.perfil-card h2 {
+    font-size: 20px;
+    color: var(--preto);
+}
+
+.perfil-dados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 16px 32px;
+    flex: 1;
+    min-width: 260px;
+}
+
+.perfil-dados dt {
+    font-size: 12px;
+    color: var(--cinza);
+}
+
+.perfil-dados dd {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+/* ---------- Telas menores ---------- */
+@media (max-width: 960px) {
+    .stats,
+    .stats.cinco {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .paineis,
+    .papeis,
+    .grade-atleta {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .menu {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 14px 16px;
+    }
+
+    .menu-logo {
+        width: 140px;
+        margin: 0 0 10px;
+    }
+
+    .menu-lista {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 6px;
+        padding-bottom: 4px;
+    }
+
+    .menu-item {
+        flex: none;
+        white-space: nowrap;
+    }
+
+    .menu-usuario {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .conteudo {
+        padding: 24px 16px 40px;
+    }
+
+    .evento-linha {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .solicitacao {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-caixa {
+        padding: 28px 20px;
+    }
+
+    .linha-campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Texto só para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}

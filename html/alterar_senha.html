@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alterar senha - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="auth">
+    <main class="auth-caixa larga">
+        <img class="auth-logo pequeno" src="img/logo.png" alt="TeamGestor">
+
+        <h1 class="auth-titulo">Altere sua senha:</h1>
+        <p class="auth-sub">Você pode alterar sua senha aqui se você a esqueceu</p>
+
+        <!-- inicio:sucesso -->
+        <div class="aviso aviso-ok" role="status">Senha alterada com sucesso!</div>
+        <a class="btn btn-escuro btn-bloco" href="login.php">Voltar ao login</a>
+        <!-- fim:sucesso -->
+
+        <!-- inicio:formulario -->
+        <!-- inicio:aviso_erro -->
+        <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+        <!-- fim:aviso_erro -->
+
+        <!-- inicio:aviso_mensagem -->
+        <div class="aviso aviso-info" role="status">{{mensagem}}</div>
+        <!-- fim:aviso_mensagem -->
+
+        <!-- Etapa 1: pedir o código -->
+        <form method="post" action="alterar_senha.php">
+            <input type="hidden" name="etapa" value="1">
+            <div class="campo">
+                <label for="email">Digite seu e-mail de cadastro:</label>
+                <div class="campo-com-botao">
+                    <input type="email" id="email" name="email" placeholder="voce@email.com" value="{{email}}">
+                    <button type="submit" class="btn btn-escuro">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Etapa 2: informar o código e a nova senha -->
+        <form method="post" action="alterar_senha.php">
+            <input type="hidden" name="etapa" value="2">
+            <input type="hidden" name="email" value="{{email}}">
+
+            <div class="campo">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Digite o código enviado ao seu e-mail" inputmode="numeric">
+            </div>
+
+            <div class="campo">
+                <label for="nova">Nova senha:</label>
+                <input type="password" id="nova" name="nova" placeholder="Digite sua nova senha">
+            </div>
+
+            <div class="campo">
+                <label for="confirma">Confirmar senha:</label>
+                <input type="password" id="confirma" name="confirma" placeholder="Digite a senha novamente">
+            </div>
+
+            <div class="botoes-linha">
+                <button type="submit" class="btn btn-escuro">Alterar senha</button>
+                <a class="btn btn-contorno" href="login.php">Cancelar</a>
+            </div>
+        </form>
+        <!-- fim:formulario -->
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

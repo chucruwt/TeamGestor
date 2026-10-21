@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Partidas - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Partidas</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:aviso_mensagem -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">{{mensagem}}</div>
+            <!-- fim:aviso_mensagem -->
+
+            <section class="stats cinco" aria-label="Resumo da campanha">
+                <div class="stat">
+                    <div class="rotulo">Jogos:</div>
+                    <div class="valor">{{jogos}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Vitórias:</div>
+                    <div class="valor">{{vitorias}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Empates:</div>
+                    <div class="valor">{{empates}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Derrotas:</div>
+                    <div class="valor destaque">{{derrotas}}</div>
+                </div>
+                <div class="stat">
+                    <div class="rotulo">Saldo de gols:</div>
+                    <div class="valor">{{saldo_texto}}</div>
+                </div>
+            </section>
+
+            <h2 class="titulo-secao">Próximas partidas</h2>
+            <!-- inicio:proxima_partida -->
+            <article class="evento">
+                <div class="evento-linha">
+                    <span class="icone-evento azul"><img src="img/bola.png" alt=""></span>
+                    <div class="evento-info">
+                        <div class="evento-titulo">Jogo vs. {{adversario}}</div>
+                        <div class="evento-sub">{{data}} - {{local}}</div>
+                    </div>
+                </div>
+            </article>
+            <!-- fim:proxima_partida -->
+
+            <!-- inicio:sem_proximas -->
+            <p class="vazio">Nenhuma partida agendada.</p>
+            <!-- fim:sem_proximas -->
+
+            <h2 class="titulo-secao">Resultados</h2>
+            <div class="tabela-caixa">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Adversário</th>
+                            <th>Local</th>
+                            <th>Placar</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- inicio:linha_resultado -->
+                        <tr>
+                            <td>{{data}}</td>
+                            <td>{{adversario}}</td>
+                            <td>{{local}}</td>
+                            <td class="placar">{{gols_time}} x {{gols_adv}}</td>
+                            <td>
+                                <!-- inicio:selo_vitoria -->
+                                <span class="selo selo-v">Vitória</span>
+                                <!-- fim:selo_vitoria -->
+                                <!-- inicio:selo_empate -->
+                                <span class="selo selo-e">Empate</span>
+                                <!-- fim:selo_empate -->
+                                <!-- inicio:selo_derrota -->
+                                <span class="selo selo-d">Derrota</span>
+                                <!-- fim:selo_derrota -->
+                            </td>
+                        </tr>
+                        <!-- fim:linha_resultado -->
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="titulo-secao">Registrar resultado</h2>
+            <form class="cartao-form" method="post" action="partidas_adm.php">
+                <!-- inicio:aviso_erro -->
+                <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+                <!-- fim:aviso_erro -->
+
+                <div class="campo">
+                    <label for="adversario">Adversário</label>
+                    <input type="text" id="adversario" name="adversario" placeholder="Ex: Juventus Futsal" value="{{f_adversario}}">
+                </div>
+
+                <div class="linha-campos">
+                    <div class="campo">
+                        <label for="data">Data</label>
+                        <input type="text" id="data" name="data" placeholder="Ex: 29 ago" value="{{f_data}}">
+                    </div>
+                    <div class="campo">
+                        <label for="local">Local</label>
+                        <input type="text" id="local" name="local" placeholder="Ex: Ginásio Municipal" value="{{f_local}}">
+                    </div>
+                </div>
+
+                <div class="linha-campos">
+                    <div class="campo">
+                        <label for="gols_time">Gols do {{time_nome}}</label>
+                        <input type="number" id="gols_time" name="gols_time" min="0" value="{{f_gols_time}}">
+                    </div>
+                    <div class="campo">
+                        <label for="gols_adv">Gols do adversário</label>
+                        <input type="number" id="gols_adv" name="gols_adv" min="0" value="{{f_gols_adv}}">
+                    </div>
+                </div>
+
+                <div class="botoes-linha">
+                    <button type="submit" class="btn btn-escuro">Salvar resultado</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atletas - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="app">
+        {{menu}}
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <h1>Atletas</h1>
+                    <p class="sub">{{time_completo}}</p>
+                </div>
+            </header>
+
+            <!-- inicio:aviso_mensagem -->
+            <div class="aviso aviso-ok mensagem-pagina" role="status">{{mensagem}}</div>
+            <!-- fim:aviso_mensagem -->
+
+            <!-- inicio:pendentes -->
+            <section class="pendentes" aria-label="Solicitações pendentes">
+                <h2>Solicitações pendentes ({{restantes}})</h2>
+
+                <!-- inicio:item_solicitacao -->
+                <div class="solicitacao">
+                    <span class="avatar laranja"></span>
+                    <div class="info">
+                        <div class="nome">{{nome}}</div>
+                        <div class="detalhe">CPF {{cpf}} &nbsp;{{posicao}} nº {{numero}}</div>
+                    </div>
+                    <div class="botoes">
+                        <a class="btn btn-verde btn-pequeno" href="atletas_adm.php?aprovar={{indice}}">Aprovar</a>
+                        <a class="btn btn-contorno btn-pequeno" href="atletas_adm.php?recusar={{indice}}">Recusar</a>
+                    </div>
+                </div>
+                <!-- fim:item_solicitacao -->
+            </section>
+            <!-- fim:pendentes -->
+
+            <div class="barra-busca">
+                <div class="busca">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#747474" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+                    <input type="search" id="busca" placeholder="Buscar atleta ou categoria" aria-label="Buscar atleta">
+                </div>
+
+                <form class="filtro-form" method="get" action="atletas_adm.php">
+                    <select name="posicao" aria-label="Filtrar por posição">
+                        <option value="">Todas as posições</option>
+                        <!-- inicio:opcao_posicao -->
+                        <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                        <!-- fim:opcao_posicao -->
+                    </select>
+                    <button type="submit" class="btn btn-contorno">Filtrar</button>
+                </form>
+            </div>
+
+            <div class="tabela-caixa">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Atleta</th>
+                            <th>Posição</th>
+                            <th>Número</th>
+                            <th>Frequência</th>
+                            <th><span class="sr-only">Opções</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- inicio:linha_atleta -->
+                        <tr class="linha-atleta">
+                            <td><span class="td-nome"><span class="avatar"></span>{{nome}}</span></td>
+                            <td>{{posicao}}</td>
+                            <td>{{numero}}</td>
+                            <td class="{{classe_freq}}">{{freq_texto}}</td>
+                            <td>
+                                <details class="mais">
+                                    <summary aria-label="Mais opções de {{nome}}">&#8943;</summary>
+                                    <div class="mais-menu">
+                                        <a href="atletas_adm.php?remover={{indice}}">Remover do elenco</a>
+                                    </div>
+                                </details>
+                            </td>
+                        </tr>
+                        <!-- fim:linha_atleta -->
+                    </tbody>
+                </table>
+
+                <!-- inicio:vazio -->
+                <p class="vazio">Nenhum atleta encontrado para esse filtro.</p>
+                <!-- fim:vazio -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

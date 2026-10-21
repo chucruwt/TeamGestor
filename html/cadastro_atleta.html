@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Criar conta - TeamGestor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="auth">
+    <main class="auth-caixa larga">
+        <img class="auth-logo pequeno" src="img/logo.png" alt="TeamGestor">
+
+        <h1 class="auth-titulo">Criar Conta</h1>
+        <p class="auth-sub">Preencha seus dados para solicitar a entrada em um time</p>
+
+        <div class="abas">
+            <a class="aba ativa" href="cadastro_atleta.php" aria-current="page">Atleta</a>
+            <a class="aba" href="cadastro_admin.php">Admin</a>
+        </div>
+
+        <!-- inicio:sucesso -->
+        <div class="aviso aviso-ok" role="status">
+            Solicitação enviada! O administrador do time vai analisar seu pedido e você será avisado por e-mail.
+        </div>
+        <a class="btn btn-escuro btn-bloco" href="login.php">Voltar ao login</a>
+        <!-- fim:sucesso -->
+
+        <!-- inicio:formulario -->
+        <!-- inicio:aviso_erro -->
+        <div class="aviso aviso-erro" role="alert">{{erro}}</div>
+        <!-- fim:aviso_erro -->
+
+        <form method="post" action="cadastro_atleta.php">
+            <div class="campo">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" value="{{nome}}" required>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Use o formato 000.000.000-00" value="{{cpf}}" required>
+                </div>
+                <div class="campo">
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="text" id="nascimento" name="nascimento" placeholder="DD/MM/AAAA" pattern="\d{2}/\d{2}/\d{4}" title="Use o formato DD/MM/AAAA" value="{{nascimento}}" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="nome@time.com.br" value="{{email}}" required>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo">
+                    <label for="posicao">Posição</label>
+                    <select id="posicao" name="posicao" required>
+                        <option value="">Selecione</option>
+                        <!-- inicio:opcao_posicao -->
+                        <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                        <!-- fim:opcao_posicao -->
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="numero">Número da camisa</label>
+                    <input type="number" id="numero" name="numero" min="1" max="99" placeholder="10" value="{{numero}}" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="time">Time</label>
+                <select id="time" name="time" required>
+                    <option value="">Selecione o time que deseja entrar</option>
+                    <!-- inicio:opcao_time -->
+                    <option value="{{valor}}"{{marcar}}>{{valor}}</option>
+                    <!-- fim:opcao_time -->
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <div class="campo-senha">
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                    <button type="button" class="btn-olho" data-alvo="senha" aria-label="Mostrar ou ocultar a senha">
+                        <img src="img/olho.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="confirma">Confirmar Senha</label>
+                <div class="campo-senha">
+                    <input type="password" id="confirma" name="confirma" placeholder="Repita a senha" required>
+                    <button type="button" class="btn-olho" data-alvo="confirma" aria-label="Mostrar ou ocultar a confirmação da senha">
+                        <img src="img/olho.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <p class="nota">
+                <img src="img/cadeado.png" alt="">
+                <span>Seu CPF é usado apenas para confirmar sua identidade junto ao administrador do time e não é exibido publicamente.</span>
+            </p>
+
+            <div class="aviso aviso-info">
+                <img src="img/info.png" alt="">
+                <span>Sua solicitação será enviada ao administrador do time escolhido para aprovação.</span>
+            </div>
+
+            <label class="termo">
+                <input type="checkbox" name="termos">
+                <span>Concordo com os termos de uso e a política de privacidade do time.</span>
+            </label>
+
+            <button type="submit" class="btn btn-escuro btn-bloco">Solicitar entrada no time</button>
+        </form>
+
+        <hr class="divisor">
+        <p class="rodape-auth">Já tem uma conta? <a class="link" href="login.php">Entrar</a></p>
+        <!-- fim:formulario -->
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
